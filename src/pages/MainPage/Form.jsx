@@ -16,7 +16,7 @@ const Form = () => {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [category, setCategory] = useState(categories[0]);
+  const [category, setCategory] = useState(categories[0].title);
 
   const handleSubmit = () => {
     const author = { ...activeUser };
@@ -32,18 +32,9 @@ const Form = () => {
       comments: [],
     };
 
-    console.log(newPost);
-
-    axios
-      .post("/posts", newPost)
-      .then(() => {
-        setTitle("");
-        setInputLevel(0);
-        addPost(newPost);
-      })
-      .catch((err) => {
-        toast.error("Post gönderme başarısız");
-      });
+    addPost(newPost);
+    setTitle("");
+    setInputLevel(0);
   };
 
   return (
@@ -53,6 +44,7 @@ const Form = () => {
         <input
           onChange={(e) => setTitle(e.target.value)}
           type="text"
+          value={title}
           placeholder="Başlık..."
           className="w-full rounded p-1 text-black shadow col-span-4"
         />

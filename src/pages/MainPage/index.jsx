@@ -1,11 +1,15 @@
 import Header from "../../components/Header";
+import Form from "./Form";
+import ListPosts from "./ListPosts";
 
 const MainPage = () => {
   return (
-    <div className="bg-gray-900 h-screen text-white">
-      <Header />
-    </div>
-  )
-}
+    <>
+      <Form />
 
-export default MainPage
+      <ListPosts />
+    </>
+  );
+};
+
+export default MainPage;

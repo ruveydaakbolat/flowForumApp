@@ -64,7 +64,11 @@ export const UserProvider = ({ children }) => {
         .catch (() => toast.error("Hesap silme başarısız"))
     }
 
-return <UserContext.Provider value={{ activeUser, signup, login, logout, deleteAccount }}>
+    const updatePassword = () => {
+        navigate('/modal')
+    }
+
+return <UserContext.Provider value={{ activeUser, signup, login, logout, deleteAccount, updatePassword }}>
     {children}
 </UserContext.Provider>
 }

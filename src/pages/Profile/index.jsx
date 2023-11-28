@@ -2,10 +2,12 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import Header from "../../components/Header/index";
 import ResetModal from "./ResetModal";
+import ConfirmModal from "../../components/ConfirmModal";
 
 const Profile = () => {
   const { activeUser, deleteAccount } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
   return (
     <>
@@ -42,7 +44,7 @@ const Profile = () => {
               </button>
 
               <button
-                onClick={deleteAccount}
+                onClick={() => setIsConfirmOpen(true)}
                 className="bg-red-600 rounded px-10 py-2 text-base font-normal hover:bg-red-500"
               >
                 Hesabı Sil
@@ -57,6 +59,14 @@ const Profile = () => {
             close={() => {
               setShowModal(false);
             }}
+          />
+        )}
+
+        {isConfirmOpen && (
+          <ConfirmModal
+            text="Hesabını Sil"
+            close={() => setIsConfirmOpen(false)}
+            handleConfirm={deleteAccount}
           />
         )}
       </div>

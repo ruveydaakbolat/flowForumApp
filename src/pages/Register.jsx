@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import InputArea from "../components/inputArea"
+import InputArea from "../components/InputArea"
 import { v4 } from "uuid";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext.jsx";

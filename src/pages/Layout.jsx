@@ -8,8 +8,8 @@ const Layout = () => {
       <Header />
 
       <main className="grid grid-cols-4">
-        <section></section>
-        <section className="col-span-3 md:col-span-2 p-4">
+        <section className='hidden md:block'></section>
+        <section className="col-span-4 md:col-span-2 p-4">
           <Outlet />
         </section>
         <section className="hidden md:block"></section>
